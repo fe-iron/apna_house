@@ -34,12 +34,27 @@
                         <li class="nav-item">
                            <a class="nav-link" href="contact.php">Contact us</a>
                         </li>
+                        <?php
+                        if(isset($_SESSION['username'])){ ?>
+                        <li class="nav-item">
+                           <a class="nav-link" href="logout.php"><span style="color:black;"><?php echo "HI, ".$_SESSION['username']; ?></span> &nbsp; logout</a>
+                        </li>
+                        <?php 
+                        }
+                        ?>
+
 
                         <!-- <li class="nav-item">
                            <a class="nav-link text-danger" href="contact.php">Get Quote</a>
                         </li> -->
                      </ul>
-
+                     <?php
+                     if(!isset($_SESSION['username'])){  ?>
+                        <span class="navbar-text mx-3">
+                       <a class="btn btn-danger text-white" href="login.php" >LOGIN/SIGNUP</a>
+                     </span>
+                     <?php }
+                     ?>
                      <span class="navbar-text">
                        <a class="btn btn-danger text-white" href="contact.php" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
                      </span>
